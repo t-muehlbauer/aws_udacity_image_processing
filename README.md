@@ -1,24 +1,56 @@
-# Full Stack Apps on AWS Project
+# AWS Udacity Image Processing
 
-You have been hired as a software engineer to develop an application that will help the FBI find missing people.  The application will upload images to the FBI cloud database hosted in AWS. This will allow the FBI to run facial recognition software on the images to detect a match. You will be developing a NodeJS server and deploying it on AWS Elastic Beanstalk. 
-You will build upon the application we've developed during the lessons in this course. You'll complete a REST API endpoint in a backend service that processes incoming image URLs.
+This project is an image processing application built using AWS services as part of the Udacity Cloud Developer course. The application processes images by applying various filters and transformations.
 
-## Getting Started
+## Table of Contents
 
-You can clone this repo to run the project locally, or navigate to the workspace in the Udacity course.
+- [About the Project](#about-the-project)
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [License](#license)
 
-## Project Instructions
+## About the Project
 
-To complete this project, you will need to:
+The application allows users to upload images, which are then processed using a predefined filter method.
 
-* Set up node environment
-* Create a new endpoint in the server.js file
-* Deploying your system
+## Installation
 
-## Testing
+1. **Clone the Repository**:
 
-Successful URL responses should have a 200 code. Ensure that you include error codes for the scenario that someone uploads something other than an image and for other common errors.
+    ```bash
+    git clone https://github.com/t-muehlbauer/aws_udacity_image_processing.git
+    cd aws_udacity_image_processing
+    ```
+
+2. **Configure AWS CLI**:
+
+    Make sure the AWS CLI is installed and configured (especially your credentials):
+
+    ```bash
+    aws configure
+    ```
+
+## Usage
+
+### Localhost
+
+- **Domain**: `http://localhost:8082`
+- **200 Example**: [Valid request](http://localhost:8082/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Golden_tabby_and_white_kitten_n01.jpg/1599px-Golden_tabby_and_white_kitten_n01.jpg?20120904132217)
+- **422 Example**: [Invalid request](http://localhost:8082/filteredimage?image_url=https://www.youtube.com)
+
+### AWS Elastic Beanstalk (EBS)
+
+- **Domain**: `http://project-dev.us-east-1.elasticbeanstalk.com`
+- **200 Example**: [Valid request](http://project-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://api.ardmediathek.de/image-service/images/urn:ard:image:caf5c0d727e1d0d3?w=448&ch=7d286ca194c537c0)
+- **422 Example**: [Invalid request](http://project-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://www.youtube.com)
+
+## API Endpoints
+
+- **GET /filteredimage**: Applies filters to an image specified by the `image_url` query parameter.
+    - Example of a valid request (200 OK): `http://localhost:8082/filteredimage?image_url=<valid_image_url>`
+    - Example of an invalid request (422 Unprocessable Entity): `http://localhost:8082/filteredimage?image_url=<invalid_image_url>`
 
 ## License
 
-[License](LICENSE.txt)
+This project is licensed under the MIT License – see the [LICENSE](LICENSE.txt) file for details.
