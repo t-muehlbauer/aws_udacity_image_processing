@@ -1,8 +1,8 @@
 Links:
 Localhost:
 - domain: http://localhost:8082
-- 200: http://localhost:8082/filteredimage=image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Golden_tabby_and_white_kitten_n01.jpg/1599px-Golden_tabby_and_white_kitten_n01.jpg?20120904132217
-- 422:
+- 200: http://localhost:8082/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Golden_tabby_and_white_kitten_n01.jpg/1599px-Golden_tabby_and_white_kitten_n01.jpg?20120904132217
+- 422: http://localhost:8082/filteredimage?image_url=https://www.youtube.com
 
 EBS:
 - domain: http://project-dev.us-east-1.elasticbeanstalk.com
