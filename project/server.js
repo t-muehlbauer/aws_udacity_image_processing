@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { filterImageFromURL, deleteLocalFiles } from './util/util.js';
 
-// Init the Express application
+// Initialize the Express application
 const app = express();
 
 // Set the network port
@@ -31,7 +31,7 @@ app.get('/filteredimage', async (req, res) => {
   }
 
   try {
-    console.log('Received image_url:', image_url);
+    console.log('NEW NEW NEW: Received image_url:', image_url);
 
     // 2. Call filterImageFromURL(image_url) to filter the image
     const filteredPath = await filterImageFromURL(image_url);
