@@ -22,9 +22,8 @@ const isValidUrl = (urlString) => {
 };
 
 // GET /filteredimage?image_url={{URL}}
-app.get('/filteredimage', 
-  async (req, res) => {
-  let { image_url } = req.query;
+app.get('/filteredimage', async (req, res) => {
+  const { image_url } = req.query;
 
   // 1. Validate the image_url query
   if (!image_url || !isValidUrl(image_url)) {
@@ -56,12 +55,12 @@ app.get('/filteredimage',
 
 // Root Endpoint
 // Displays a simple message to the user
-app.get("/", async (req, res) => {
-  res.send("try GET /filteredimage?image_url={{}}");
+app.get("/", (req, res) => {
+  res.send("try GET /filteredimage?image_url={{URL}}");
 });
 
 // Start the Server
 app.listen(port, () => {
-  console.log(`server running http://localhost:${port}`);
-  console.log(`press CTRL+C to stop server`);
+  console.log(`Server running at http://localhost:${port}`);
+  console.log('Press CTRL+C to stop the server');
 });
